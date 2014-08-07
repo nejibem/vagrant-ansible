@@ -1,0 +1,26 @@
+---
+#- name: Install MySQL server
+#  sudo: yes
+#  apt:  pkg=mysql-server state=latest
+
+- name: Install MySQL server
+  action: apt pkg={{ item }} state=present
+  with_items:
+    - mysql-server
+    - python-dev
+    - python-setuptools
+    - python-mysqldb
+
+- name: Allow access to MySQL from anywhere
+  sudo: yes
+  lineinfile: dest=/etc/mysql/my.cnf regexp="^bind-address" "line=#bind-address = 0.0.0.0"
+  notify: restart mysql
+
+- name: Add root user from anywhere to MySQL
+  command: mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'; FLUSH PRIVILEGES;"
+
+- name: Create Mysql user
+  mysql_user: name={{ database_user }} password={{ database_password }} priv={{ database_name }}.*:ALL state=present
+
+- name: Create Mysql Database
+  mysql_db: name={{ database_name }} state=present

@@ -2,11 +2,12 @@
 - name: Symfony with Vagrant-Ansible
   hosts: webservers
   sudo: yes
+  user: vagrant
       
   roles:
     - common
     - git
-    - composer
     - php-fpm
+    - composer
     - nginx
     - mysql

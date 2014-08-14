@@ -1,18 +1,18 @@
 ---
-
 - hosts: webservers
   user: vagrant
   sudo: True
-
-  vars:
-    webapps_dir: /srv/webapps
 
   vars_files:
     - variables.yml
 
   tasks:
-    - name: deploy code from repository
-      action: git repo={{ repo_url }} dest=/var/www/symfony.local remote={{ repo_remote }} version={{ repo_version }}
+
+#    - name: deploy code from repository
+#      action: git repo={{ repo_url }} dest=/var/www/symfony.local remote={{ repo_remote }} version={{ repo_version }}
+
+    - name: update composer packages
+      action: command /usr/bin/git pull origin master chdir=/var/www/{{ server_hostname }}
 
 #    - name: ensure log directory
 #      action: file dest={{ webapps_dir }}/{{ app_name }}/src/app/logs state=directory mode=0755 owner=www-data group=www-data

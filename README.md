@@ -3,6 +3,8 @@ vagrant-ansible
 
 ## Deploy Instructions
 
+Need to setup ssh access before ansible can deploy to server.
+
 #### Generate Ssh keys (if required)
 see https://help.github.com/articles/generating-ssh-keys
 

@@ -1,21 +1,24 @@
 ---
 - hosts: webservers
   user: vagrant
-  sudo: True
+  sudo: False
 
   vars_files:
     - variables.yml
 
   tasks:
+    - name: git checkout
+      git: repo={{ repo_url }} dest=/var/www/{{ server_hostname }} accept_hostkey=yes
 
     - name: update composer packages
-      action: command /usr/bin/git pull origin master chdir=/var/www/{{ server_hostname }}
+      action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}
 
-#    - name: ensure log directory
-#      action: file dest=/var/www/{{ server_hostname }}/var/logs state=directory mode=0755 owner=www-data group=www-data
-#
-#    - name: ensure cache directory
-#      action: file dest=/var/www/{{ server_hostname }}/var/cache state=directory mode=0755 owner=www-data group=www-data
-#
-#    - name: update composer packages
-#      action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}
+    - name: ensure log directory
+      action: file dest=/var/www/{{ server_hostname }}/app/logs/ state=directory mode=0755 recurse=yes
+      sudo: True
+
+    - name: ensure cache directory
+      action: file dest=/var/www/{{ server_hostname }}/app/cache/ state=directory mode=0755 recurse=yes
+      sudo: True
+
+# owner=www-data group=www-data

@@ -1,8 +1,0 @@
----
-server_hostname: symfony.localhost
-symfony_version: 2.5.*
-symfony_folder: application/symfony
-php_fpm_socket: /var/run/php-fpm.sock
-database_name: symfony
-database_user: symfony
-database_password: mysymfonydatabasepassword

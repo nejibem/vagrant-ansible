@@ -4,7 +4,7 @@
   sudo: True
 
   vars_files:
-    - variables.yml
+    - vars.yml
 
   tasks:
     - name: git checkout

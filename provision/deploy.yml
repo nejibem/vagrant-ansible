@@ -1,7 +1,7 @@
 ---
 - hosts: webservers
   user: vagrant
-  sudo: False
+  sudo: True
 
   vars_files:
     - variables.yml
@@ -9,16 +9,13 @@
   tasks:
     - name: git checkout
       git: repo={{ repo_url }} dest=/var/www/{{ server_hostname }} accept_hostkey=yes
+      sudo: False
 
     - name: update composer packages
       action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}
 
     - name: ensure log directory
-      action: file dest=/var/www/{{ server_hostname }}/app/logs/ state=directory mode=0755 recurse=yes
-      sudo: True
+      action: file dest=/var/www/{{ server_hostname }}/app/logs/ state=directory owner=vagrant group=www-data mode=0775 recurse=yes
 
     - name: ensure cache directory
-      action: file dest=/var/www/{{ server_hostname }}/app/cache/ state=directory mode=0755 recurse=yes
-      sudo: True
-
-# owner=www-data group=www-data
+      action: file dest=/var/www/{{ server_hostname }}/app/cache/ state=directory mode=0775 owner=vagrant group=www-data recurse=yes

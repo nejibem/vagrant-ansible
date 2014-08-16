@@ -10,7 +10,7 @@ symfony_folder: application/symfony
 # Database
 database_name: symfony
 database_user: symfony
-database_password: mysymfonydatabasepassword
+database_password: pass
 
 # Repository
 repo_url: https://github.com/nejibem/vagrant-ansible

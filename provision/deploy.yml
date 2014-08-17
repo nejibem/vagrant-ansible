@@ -12,7 +12,7 @@
       sudo: False
 
     - name: update composer packages
-      composer: command=update working_dir=/var/www/{{ server_hostname }}/{{ web_app_root }}
+      composer: working_dir=/var/www/{{ server_hostname }}/{{ web_app_root }}
       sudo: False
 
 #      action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}

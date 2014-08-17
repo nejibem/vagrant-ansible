@@ -12,7 +12,8 @@
       sudo: False
 
     - name: update composer packages
-      action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
+      #action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
+      command: composer --no-interaction update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
       sudo: False
 
     - name: ensure log directory
@@ -20,3 +21,10 @@
 
     - name: ensure cache directory
       action: file dest=/var/www/{{ server_hostname }}/{{ web_app_root }}/app/cache/ state=directory owner=vagrant group=www-data mode=0775 recurse=yes
+
+
+    - name: Install symfony assets
+      command: /usr/bin/php app/console assets:install web chdir={{ app_path }}
+
+    - name: Dump symfony assets
+      command: /usr/bin/php app/console assetic:dump chdir={{ app_path }}

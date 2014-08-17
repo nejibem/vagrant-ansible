@@ -24,7 +24,7 @@
 
 
     - name: Install symfony assets
-      command: /usr/bin/php app/console assets:install web chdir={{ app_path }}
+      command: /usr/bin/php app/console assets:install web chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
 
     - name: Dump symfony assets
-      command: /usr/bin/php app/console assetic:dump chdir={{ app_path }}
+      command: /usr/bin/php app/console assetic:dump chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}

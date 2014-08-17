@@ -12,8 +12,10 @@
       sudo: False
 
     - name: update composer packages
-      action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
-      sudo: False
+      composer: command=update working_dir=/var/www/{{ server_hostname }}/{{ web_app_root }}
+
+#      action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
+#      sudo: False
 
     - name: ensure log directory
       action: file dest=/var/www/{{ server_hostname }}/{{ web_app_root }}/app/logs/ state=directory owner=vagrant group=www-data mode=0775 recurse=yes

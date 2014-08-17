@@ -13,7 +13,7 @@ sudo curl https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/ma
 sudo chmod +x /usr/local/bin/ssh-copy-id
 
 #### Copy public key to user vagrant on host
-ssh-copy-id -i ~/.ssh/id_rsa.pub vagrant@192.168.100.10
+ssh-copy-id -i ~/.ssh/id_rsa.pub vagrant@192.168.56.10
 
 #### Run deploy Script
 ./provision/deploy.sh

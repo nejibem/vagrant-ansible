@@ -3,7 +3,7 @@
 php_fpm_socket: /var/run/php-fpm.sock
 
 # Symfony
-server_hostname: symfony.localhost
+server_hostname: symfony.local
 symfony_version: 2.5.*
 symfony_folder: application/symfony
 
@@ -13,6 +13,8 @@ database_user: symfony
 database_password: pass
 
 # Repository
-repo_url: https://github.com/nejibem/vagrant-ansible
+repo_url: git@github.com:nejibem/vagrant-ansible3.git
 repo_remote: origin
 repo_version: master
+
+web_app_root: symfony

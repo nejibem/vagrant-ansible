@@ -8,14 +8,14 @@
 
   tasks:
     - name: git checkout
-      git: repo={{ repo_url }} dest=/var/www/{{ server_hostname }} accept_hostkey=yes
+      git: repo={{ repo_url }} dest=/var/www/{{ server_hostname }} remote={{ repo_remote }} version={{ repo_version }} accept_hostkey=yes
       sudo: False
 
     - name: update composer packages
-      action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}
+      action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
 
     - name: ensure log directory
-      action: file dest=/var/www/{{ server_hostname }}/app/logs/ state=directory owner=vagrant group=www-data mode=0775 recurse=yes
+      action: file dest=/var/www/{{ server_hostname }}/{{ web_app_root }}/app/logs/ state=directory owner=vagrant group=www-data mode=0775 recurse=yes
 
     - name: ensure cache directory
-      action: file dest=/var/www/{{ server_hostname }}/app/cache/ state=directory mode=0775 owner=vagrant group=www-data recurse=yes
+      action: file dest=/var/www/{{ server_hostname }}/{{ web_app_root }}/app/cache/ state=directory owner=vagrant group=www-data mode=0775 recurse=yes

@@ -11,19 +11,19 @@
       git: repo={{ repo_url }} dest=/var/www/{{ server_hostname }} remote={{ repo_remote }} version={{ repo_version }} accept_hostkey=yes
       sudo: False
 
-    - name: update composer packages
+    - name: composer update packages
       #action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
       command: composer --no-interaction update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
       sudo: False
 
-    - name: ensure log directory
+    - name: symfony ensure log directory
       action: file dest=/var/www/{{ server_hostname }}/{{ web_app_root }}/app/logs/ state=directory owner=vagrant group=www-data mode=0775 recurse=yes
 
-    - name: ensure cache directory
+    - name: symfony ensure cache directory
       action: file dest=/var/www/{{ server_hostname }}/{{ web_app_root }}/app/cache/ state=directory owner=vagrant group=www-data mode=0775 recurse=yes
 
     - name: symfony install assets
-      command: /usr/bin/php app/console assets:install web chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
+      command: php app/console assets:install web chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
 
     - name: symfony dump assets
-      command: /usr/bin/php app/console assetic:dump chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
+      command: php app/console assetic:dump chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}

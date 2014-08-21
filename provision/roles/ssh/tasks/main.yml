@@ -1,0 +1,11 @@
+---
+- copy: src=~/.ssh/id_rsa.pub dest=/home/{{ user }}/.ssh/mykey.pub
+  sudo: false
+
+- copy: src=~/.ssh/id_rsa dest=/home/{{ user }}/.ssh/id_rsa mode=0600
+  sudo: false
+
+- copy: src=~/.ssh/known_hosts dest=/home/{{ user }}/.ssh/known_hosts
+  sudo: false
+
+- authorized_key: user={{ user }} key="{{ lookup('file', '/home/{{ user }}/.ssh/id_rsa.pub') }}"

@@ -7,6 +7,9 @@
   vars_files:
     - vars.yml
 
+  vars:
+    user: vagrant
+
   roles:
     - common
     - ssh

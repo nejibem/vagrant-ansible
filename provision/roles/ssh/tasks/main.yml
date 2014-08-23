@@ -2,8 +2,8 @@
 #- copy: src=~/.ssh/id_rsa.pub dest=/home/{{ user }}/.ssh/id_rsa.pub
 #  sudo: false
 
-#- copy: src=~/.ssh/id_rsa dest=/home/{{ user }}/.ssh/id_rsa mode=0600
-#  sudo: false
+- copy: src=~/.ssh/id_rsa dest=/home/{{ user }}/.ssh/id_rsa mode=0600
+  sudo: false
 
 #- copy: src=~/.ssh/known_hosts dest=/home/{{ user }}/.ssh/known_hosts
 #  sudo: false

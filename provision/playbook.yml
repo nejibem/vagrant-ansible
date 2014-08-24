@@ -1,7 +1,7 @@
 ---
 - name: Vagrant Ansible LEMP
   hosts: webservers
-  sudo: yes
+  sudo: true
   user: vagrant
 
   vars_files:

@@ -8,7 +8,7 @@
     - python-mysqldb
 
 - name: allow access to mysql from anywhere
-  sudo: yes
+  sudo: true
   lineinfile: dest=/etc/mysql/my.cnf regexp="^bind-address" "line=#bind-address = 0.0.0.0"
   notify: restart mysql
 

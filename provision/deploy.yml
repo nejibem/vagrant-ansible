@@ -1,7 +1,7 @@
 ---
 - hosts: webservers
   user: vagrant
-  sudo: True
+  sudo: true
 
   vars_files:
     - vars.yml
@@ -9,11 +9,11 @@
   tasks:
     - name: git checkout
       git: repo={{ repo_url }} dest=/var/www/{{ server_hostname }} remote={{ repo_remote }} version={{ repo_version }} accept_hostkey=yes
-      sudo: False
+      sudo: false
 
     - name: composer update packages
       command: composer --no-interaction update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
-      sudo: False
+      sudo: false
 
     - name: symfony ensure log directory
       action: file dest=/var/www/{{ server_hostname }}/{{ web_app_root }}/app/logs/ state=directory owner=vagrant group=www-data mode=0775 recurse=yes

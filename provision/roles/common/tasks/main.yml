@@ -1,5 +1,5 @@
 ---
-- name: update the apt cache
+- name: update apt cache
   apt: update_cache=yes
   
 - name: install vim

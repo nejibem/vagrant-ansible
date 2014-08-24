@@ -12,7 +12,6 @@
       sudo: False
 
     - name: composer update packages
-      #action: command /usr/bin/composer update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
       command: composer --no-interaction update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
       sudo: False
 

@@ -7,3 +7,6 @@
   
 - name: install curl
   apt:  pkg=curl state=latest
+
+- name: install git
+  apt:  pkg=git state=latest

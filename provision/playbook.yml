@@ -13,7 +13,6 @@
   roles:
     - common
     - ssh
-    - git
     - php
     - composer
     - nginx

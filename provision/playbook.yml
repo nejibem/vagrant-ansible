@@ -14,7 +14,7 @@
     - common
     - ssh
     - git
-    - php-fpm
+    - php
     - composer
     - nginx
     - mysql

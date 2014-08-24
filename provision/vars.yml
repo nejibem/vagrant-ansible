@@ -13,7 +13,7 @@ database_user: symfony
 database_password: pass
 
 # Repository
-repo_url: git@github.com:nejibem/vagrant-ansible3.git
+repo_url: git@github.com:nejibem/vagrant-ansible.git
 repo_remote: origin
 repo_version: master
 

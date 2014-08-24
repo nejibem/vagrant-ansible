@@ -1,11 +1,7 @@
 ---
-#- copy: src=~/.ssh/id_rsa.pub dest=/home/{{ user }}/.ssh/id_rsa.pub
-#  sudo: false
-
-- copy: src=~/.ssh/id_rsa dest=/home/{{ user }}/.ssh/id_rsa mode=0600
+- name: ssh | add private key
+  copy: src=~/.ssh/id_rsa dest=/home/{{ user }}/.ssh/id_rsa mode=0600
   sudo: false
 
-#- copy: src=~/.ssh/known_hosts dest=/home/{{ user }}/.ssh/known_hosts
-#  sudo: false
-
-- authorized_key: user={{ user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+- name: ssh | add public key
+  authorized_key: user={{ user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

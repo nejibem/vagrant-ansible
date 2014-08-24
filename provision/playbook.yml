@@ -1,5 +1,5 @@
 ---
-- name: Symfony with Vagrant-Ansible
+- name: Vagrant Ansible LEMP
   hosts: webservers
   sudo: yes
   user: vagrant

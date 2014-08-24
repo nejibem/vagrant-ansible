@@ -2,16 +2,16 @@
 - name: install nginx
   apt: pkg=nginx state=latest
 
-- name: create nginx main configuration
+- name: create nginx server configuration
   template: src=nginx.conf dest=/etc/nginx/nginx.conf
 
-- name: create symfony nginx configuration
+- name: create nginx site configuration
   template: src=symfony.conf dest=/etc/nginx/sites-available/symfony.conf
 
-- name: delete default nginx configuration
+- name: delete nginx default site configuration
   file: name=/etc/nginx/sites-enabled/default state=absent
 
-- name: create link for nginx configuration
+- name: create nginx site configuration symlink
   file: src=/etc/nginx/sites-available/symfony.conf dest=/etc/nginx/sites-enabled/symfony.conf state=link
   notify: restart nginx
   

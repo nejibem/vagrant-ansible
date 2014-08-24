@@ -1,5 +1,5 @@
 ---
-- name: php | install php packages
+- name: install php packages
   apt: pkg={{ item }} state=latest
   with_items:
     - php5
@@ -13,6 +13,6 @@
     - php5-mcrypt
 #    - php5-memcached
 
-- name: php-fpm | install pool configuration
+- name: install pool configuration
   template: src=www.conf dest=/etc/php5/fpm/pool.d/www.conf
   notify: restart php-fpm

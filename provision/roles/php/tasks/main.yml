@@ -11,7 +11,7 @@
     - php5-gd
     - php5-mysql
     - php5-mcrypt
-#    - php5-pdo
+    - php5-pdo
 #    - php5-memcached
 
 - name: setup php config

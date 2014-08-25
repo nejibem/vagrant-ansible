@@ -1,11 +1,11 @@
 ---
 # Php
 php_fpm_socket: /var/run/php-fpm.sock
+php_memory_limit: 128M
+php_date_timezone: Australia/Melbourne
 
 # Symfony
 server_hostname: symfony.local
-symfony_version: 2.5.*
-symfony_folder: application/symfony
 
 # Database
 database_name: symfony
@@ -17,9 +17,5 @@ repo_url: git@github.com:nejibem/vagrant-ansible.git
 repo_remote: origin
 repo_version: master
 
-# php
-php_memory_limit: 128M
-php_date_timezone: Australia/Melbourne
-
-
+# App
 web_app_root: symfony

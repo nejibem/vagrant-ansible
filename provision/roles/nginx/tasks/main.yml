@@ -2,13 +2,13 @@
 - name: install nginx
   apt: pkg=nginx state=latest
 
-- name: create nginx server config
+- name: setup nginx server config
   template: src=nginx.conf dest=/etc/nginx/nginx.conf
 
-- name: create nginx site config
+- name: setup nginx site config
   template: src=symfony.conf dest=/etc/nginx/sites-available/symfony.conf
 
-- name: create nginx site config symlink
+- name: setup nginx site config symlink
   file: src=/etc/nginx/sites-available/symfony.conf dest=/etc/nginx/sites-enabled/symfony.conf state=link
   notify: restart nginx
 

@@ -11,8 +11,13 @@
     - php5-gd
     - php5-mysql
     - php5-mcrypt
+#    - php5-pdo
 #    - php5-memcached
 
-- name: install fpm pool configuration
+- name: setup php config
+  template: src=php.ini dest=//etc/php5/fpm/php.ini
+  notify: restart php-fpm
+
+- name: setup fpm pool config
   template: src=www.conf dest=/etc/php5/fpm/pool.d/www.conf
   notify: restart php-fpm

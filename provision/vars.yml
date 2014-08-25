@@ -17,4 +17,9 @@ repo_url: git@github.com:nejibem/vagrant-ansible.git
 repo_remote: origin
 repo_version: master
 
+# php
+php_memory_limit: 128M
+php_date_timezone: Australia/Melbourne
+
+
 web_app_root: symfony

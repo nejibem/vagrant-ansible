@@ -26,3 +26,6 @@
 
     - name: symfony dump assets
       command: php app/console assetic:dump chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
+
+    - name: doctrine generate migrations
+      command: php doctrine:migrations:migrate --no-interaction chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}

@@ -12,7 +12,8 @@
       sudo: false
 
     - name: composer update packages
-      command: composer --no-interaction update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
+#      command: composer --no-interaction update chdir=/var/www/{{ server_hostname }}/{{ web_app_root }}
+      composer: working_dir=/var/www/{{ server_hostname }}/{{ web_app_root }}
       sudo: false
 
     - name: symfony ensure log directory

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ansible-playbook -vv -i provision/hosts -u vagrant provision/deploy.yml
+ansible-playbook -v -i provision/hosts -u vagrant provision/deploy.yml

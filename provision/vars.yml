@@ -19,3 +19,6 @@ repo_version: master
 
 # App
 web_app_root: symfony
+
+# Vagrant
+user: vagrant

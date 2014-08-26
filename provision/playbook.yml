@@ -1,6 +1,6 @@
 ---
 - name: Vagrant Ansible LEMP
-  hosts: webservers
+  hosts: dev-server
   sudo: true
   user: vagrant
 

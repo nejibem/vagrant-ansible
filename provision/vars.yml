@@ -21,4 +21,4 @@ repo_version: master
 web_app_root: symfony
 
 # Vagrant
-user: vagrant
+remote_user: vagrant

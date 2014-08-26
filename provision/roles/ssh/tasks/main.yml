@@ -1,7 +1,7 @@
 ---
 - name: add private key
-  copy: src=~/.ssh/id_rsa dest=/home/{{ user }}/.ssh/id_rsa mode=0600
+  copy: src=~/.ssh/id_rsa dest=/home/{{ remote_user }}/.ssh/id_rsa mode=0600
   sudo: false
 
 - name: add public key
-  authorized_key: user={{ user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+  authorized_key: user={{ remote_user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

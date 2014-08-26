@@ -1,6 +1,6 @@
 ---
 - hosts: webservers
-  user: {{ remote_user }}
+  user: vagrant
   sudo: true
 
   vars_files:

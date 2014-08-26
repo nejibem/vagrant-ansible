@@ -2,7 +2,7 @@
 - name: Vagrant Ansible LEMP
   hosts: webservers
   sudo: true
-  user: {{ remote_user }}
+  user: vagrant
 
   vars_files:
     - vars.yml

@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box = "puphpet/ubuntu1404-x64"
     config.vm.box_url = "puphpet/ubuntu1404-x64"
 
-    config.vm.define :dev-server do |dev_config|
+    config.vm.define :dev_server do |dev_config|
 
         dev_config.vm.provider :virtualbox do |v|
             v.customize [ "modifyvm", :id, "--memory", "1024" ]

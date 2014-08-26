@@ -5,7 +5,7 @@
   user: vagrant
 
   vars_files:
-    - vars.yml
+    - vars_dev.yml
 
   roles:
     - common

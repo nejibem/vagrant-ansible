@@ -5,7 +5,7 @@ php_memory_limit: 128M
 php_date_timezone: Australia/Melbourne
 
 # Symfony
-server_hostname: symfony.local
+site_hostname: symfony.local
 
 # Database
 database_name: symfony

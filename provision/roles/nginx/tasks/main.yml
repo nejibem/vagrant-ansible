@@ -6,10 +6,10 @@
   template: src=nginx.conf dest=/etc/nginx/nginx.conf
 
 - name: setup nginx site config
-  template: src=site.conf dest=/etc/nginx/sites-available/{{ server_hostname }}.conf
+  template: src=site.conf dest=/etc/nginx/sites-available/{{ site_hostname }}.conf
 
 - name: setup nginx site config symlink
-  file: src=/etc/nginx/sites-available/{{ server_hostname }}.conf dest=/etc/nginx/sites-enabled/{{ server_hostname }}.conf state=link
+  file: src=/etc/nginx/sites-available/{{ site_hostname }}.conf dest=/etc/nginx/sites-enabled/{{ site_hostname }}.conf state=link
   notify: restart nginx
 
 - name: delete nginx default site config

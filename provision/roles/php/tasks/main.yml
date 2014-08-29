@@ -16,10 +16,10 @@
     - php5-mcrypt
 #    - php5-memcached
 
-#- name: setup php config
-#  template: src=php.ini dest=//etc/php5/fpm/php.ini
-#  notify: restart php-fpm
-#
-#- name: setup fpm pool config
-#  template: src=www.conf dest=/etc/php5/fpm/pool.d/www.conf
-#  notify: restart php-fpm
+- name: setup php config
+  template: src=php.ini dest=//etc/php5/fpm/php.ini
+  notify: restart php-fpm
+
+- name: setup fpm pool config
+  template: src=www.conf dest=/etc/php5/fpm/pool.d/www.conf
+  notify: restart php-fpm

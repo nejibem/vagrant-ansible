@@ -1,6 +1,6 @@
 ---
 # Php
-php_fpm_socket: /var/run/php-fpm.sock
+php_fpm_socket: /var/run/php5-fpm.sock
 php_memory_limit: 128M
 php_date_timezone: Australia/Melbourne
 

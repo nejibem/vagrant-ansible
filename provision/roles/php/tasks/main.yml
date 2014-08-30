@@ -17,7 +17,7 @@
 #    - php5-memcached
 
 - name: setup php config
-  template: src=php.ini dest=//etc/php5/fpm/php.ini
+  template: src=php.ini dest=/etc/php5/fpm/php.ini
   notify: restart php-fpm
 
 - name: setup fpm pool config

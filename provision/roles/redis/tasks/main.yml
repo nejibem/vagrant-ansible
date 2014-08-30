@@ -4,3 +4,4 @@
 
 - name: install php package
   apt: pkg=php5-redis state=latest
+  notify: restart php-fpm

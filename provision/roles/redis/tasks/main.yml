@@ -3,7 +3,7 @@
   apt: pkg=redis-server state=latest
 
 - name: ensure service is restarted
-  service: name=redis state=restarted
+  service: name=redis-server state=restarted
 
 - name: install php package
   apt: pkg=php5-redis state=latest

@@ -1,0 +1,6 @@
+---
+- name: install php packages
+  apt: pkg=redis-server state=latest
+
+- name: install php packages
+  apt: pkg=php5-redis state=latest
